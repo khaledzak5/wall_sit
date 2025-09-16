@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme: white and orange */
+    --color-background: #FFFFFF; /* white */
+    --color-foreground: #1F2937; /* gray-800 */
+    --color-border: #E5E7EB; /* gray-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #F59E0B; /* orange-500 */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1F2937; /* gray-800 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1F2937; /* gray-800 */
+    --color-muted: #F8F9FA; /* gray-50 */
+    --color-muted-foreground: #6B7280; /* gray-500 */
+    --color-primary: #F59E0B; /* orange-500 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #F8F9FA; /* gray-50 */
+    --color-secondary-foreground: #1F2937; /* gray-800 */
+    --color-accent: #F59E0B; /* orange-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-surface: #F8F9FA; /* gray-50 */
+    --color-text-primary: #1F2937; /* gray-800 */
+    --color-text-secondary: #6B7280; /* gray-500 */
+    --color-success-deep: #059669; /* emerald-600 */
+  }
+
+  .dark {
+    /* Dark Theme: black with orange accents */
+    --color-background: #000000; /* black */
+    --color-foreground: #ffffff; /* white text */
+    --color-border: #222222; /* dark border */
+    --color-input: #1A1A1A; /* dark input */
+    --color-ring: #FFA500; /* orange ring/accent */
+    --color-card: #1A1A1A; /* dark card */
+    --color-card-foreground: #ffffff; /* white card text */
+    --color-popover: #1A1A1A; /* dark popover */
+    --color-popover-foreground: #ffffff; /* white popover text */
+    --color-muted: #222222; /* muted dark */
+    --color-muted-foreground: #888888; /* muted gray */
+    --color-primary: #FFA500; /* orange for primary buttons/accents */
+    --color-primary-foreground: #000000; /* black */
+    --color-secondary: #222222; /* dark secondary */
+    --color-secondary-foreground: #ffffff; /* white secondary text */
+    --color-accent: #FFA500; /* orange accent */
+    --color-accent-foreground: #000000; /* black */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #ffffff; /* white */
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #ffffff; /* white */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #ffffff; /* white */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #ffffff; /* white */
+    --color-surface: #222222; /* dark surface */
+    --color-text-primary: #ffffff; /* white */
+    --color-text-secondary: #FFA500; /* orange for highlights only */
+    --color-success-deep: #059669; /* emerald-600 */
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Custom shadow utilities */
+  .shadow-elevation-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-elevation-2 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .shadow-elevation-3 {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark mode shadows */
+  .dark .shadow-elevation-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .shadow-elevation-2 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark .shadow-elevation-3 {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Spring-based animations */
+  .animate-spring {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .animate-spring-fast {
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .animate-spring-slow {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-spring,
+    .animate-spring-fast,
+    .animate-spring-slow,
+    .transition-smooth {
+      transition: none;
+    }
+  }
+}
