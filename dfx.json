@@ -1,0 +1,25 @@
+{
+  "canisters": {
+    "frontend": {
+      "type": "assets",
+      "source": [
+        "build/"
+      ],
+      "assets": [
+        ["index.html", {"path": "/"}],
+        ["/assets/*", {"path": "/assets"}]
+      ],
+      "exclude": [
+        "**/*.map"
+      ]
+    }
+  },
+  "networks": {
+  "local": {
+    "bind": "127.0.0.1:8000",
+    "type": "ephemeral"
+  }
+},
+  
+  "version": 1
+}
